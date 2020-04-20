@@ -87,7 +87,7 @@ export class Tamagotchi {
       return "I don't want to play!"
     }
   }
-  
+
 
   setDeath() {
     setInterval(() => {
@@ -105,6 +105,15 @@ export class Tamagotchi {
     this.foodLevel = 0;
     this.energyLevel = 0;
     this.playLevel = 0;
+  }
+
+  giveMovie() {
+    if (this.playLevel <= 6) {
+      this.playLevel += 3; 
+      this.energyLevel -= 1;
+    } else {
+      return "I don't want to watch movies"
+    }
   }
 
 
