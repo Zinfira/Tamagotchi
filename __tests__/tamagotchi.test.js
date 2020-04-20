@@ -41,10 +41,15 @@ describe('Kitty', () => {
     kitty.feed();
     expect(kitty.foodLevel).toEqual(10);
   });
-  test('should raise food level by +2 when given an apple', function () {
+  test('should not raise food level by +2 when given an apple if foodLevel is over 8', function () {
     jest.advanceTimersByTime(2500);
     expect(kitty.foodLevel).toEqual(9);
     expect(kitty.giveApple()).toEqual("I'm not hungry!");
+  });
+  test('should raise food level by +2 when given an apple if foodLevel is below 8', function() {
+    jest.advanceTimersByTime(22501);
+    kitty.giveApple();
+    expect(kitty.foodLevel).toEqual(3);
   });
 
 
