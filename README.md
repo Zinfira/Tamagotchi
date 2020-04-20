@@ -5,3 +5,4 @@ play level;
 tired level;
 get hungry on food level 5
 energy level, it gets tired on level 4
+

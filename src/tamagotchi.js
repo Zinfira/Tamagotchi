@@ -115,15 +115,26 @@ export class Tamagotchi {
     }
   }
 
-    giveCake() {
-      if (this.playLevel <= 7) {
-        this.foodLevel += 3; 
-        this.energyLevel -= 1;
-        this.playLevel -= 1;
-      } else {
-        return "I don't want to eat cake now"
-      }
+  giveCake() {
+    if (this.foodLevel <= 7) {
+      this.foodLevel += 3; 
+      this.energyLevel -= 1;
+      this.playLevel -= 1;
+    } else {
+      return "I don't want to eat cake now"
+    }
   }
+
+  giveRedBull() {
+    if (this.energyLevel <= 7) {
+      this.energyLevel += 3;
+      this.foodLevel -= 2;
+      this.playLevel -= 1;
+    } else {
+      return "It's too early for energy drinks!"
+    }
+  }
+  
 
 
 

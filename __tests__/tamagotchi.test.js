@@ -127,9 +127,9 @@ describe('Kitty', () => {
 
   test('should raise energy level by +4 but will decrease food and play level by -1', function() {
     jest.advanceTimersByTime(12500);
-    kitty.giveCake();
+    kitty.giveRedBull();
     expect(kitty.energyLevel).toEqual(8);
-    expect(kitty.foodLevel).toEqual(4);
+    expect(kitty.foodLevel).toEqual(3);
     expect(kitty.playLevel).toEqual(4);
   });
 
