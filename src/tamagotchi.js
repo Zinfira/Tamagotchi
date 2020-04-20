@@ -68,8 +68,10 @@ export class Tamagotchi {
   play() {
     this.playLevel = 10;
   }
-  
-  
+  giveToy() {
+    this.playLevel += 2;
+  }
+
   setDeath() {
     setInterval(() => {
       this.life--;
