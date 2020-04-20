@@ -47,9 +47,9 @@ describe('Kitty', () => {
     expect(kitty.giveApple()).toEqual("I'm not hungry!");
   });
   test('should raise food level by +2 when given an apple if foodLevel is below 8', function() {
-    jest.advanceTimersByTime(22501);
+    jest.advanceTimersByTime(7500);
     kitty.giveApple();
-    expect(kitty.foodLevel).toEqual(3);
+    expect(kitty.foodLevel).toEqual(9);
   });
 
 
@@ -70,10 +70,15 @@ describe('Kitty', () => {
     kitty.nap();
     expect(kitty.energyLevel).toEqual(10);
   });
+  test('should not raise energy level by +2 when given a tea if energyLevel is over 8', function () {
+    jest.advanceTimersByTime(2500);
+    expect(kitty.foodLevel).toEqual(9);
+    expect(kitty.giveApple()).toEqual("I don't want tea yet!");
+  });
   test('should raise energy level by +2 when given some tea', function () {
-    jest.advanceTimersByTime(25000);
+    jest.advanceTimersByTime(7500);
     kitty.giveTea();
-    expect(kitty.energyLevel).toEqual(+2);
+    expect(kitty.energyLevel).toEqual(9);
   });
 
 
@@ -94,10 +99,15 @@ describe('Kitty', () => {
     kitty.play();
     expect(kitty.playLevel).toEqual(10);
   });
+  test('should not raise play level by +2 when given a toy if playLevel is over 8', function () {
+    jest.advanceTimersByTime(2500);
+    expect(kitty.foodLevel).toEqual(9);
+    expect(kitty.giveApple()).toEqual("I don't want to play!");
+  });
   test('should raise play level by +2 when given a toy', function () {
-    jest.advanceTimersByTime(25000);
+    jest.advanceTimersByTime(7500);
     kitty.giveToy();
-    expect(kitty.playLevel).toEqual(+2);
+    expect(kitty.playLevel).toEqual(9);
   })
 
 

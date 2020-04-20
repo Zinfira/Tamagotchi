@@ -54,7 +54,12 @@ export class Tamagotchi {
     this.energyLevel = 10;
   }
   giveTea() {
-    this.energyLevel += 2;
+    if (this.energyLevel <= 8) {
+      this.energyLevel += 2;
+    } else {
+      return "I don't want tea yet!"
+    }
+    
   }
 
 
@@ -76,7 +81,12 @@ export class Tamagotchi {
     this.playLevel = 10;
   }
   giveToy() {
-    this.playLevel += 2;
+    if (this.playLevel <= 8) {
+      this.playLevel += 2;
+    } else {
+      return "I don't want to play!"
+    }
+    
   }
 
   setDeath() {
