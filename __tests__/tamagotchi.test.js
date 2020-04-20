@@ -63,6 +63,11 @@ describe('Kitty', () => {
     kitty.nap();
     expect(kitty.energyLevel).toEqual(10);
   });
+  test('should raise energy level by +2 when given some tea', function() {
+    jest.advanceTimersByTime(25000);
+    kitty.giveTea();
+    expect(kitty.energyLevel).toEqual(+2);
+  });
 
   test('play level should go down by 1 every 2.5 seconds', () => {
     jest.advanceTimersByTime(2500);
@@ -92,9 +97,6 @@ describe('Kitty', () => {
     kitty.nap();
     kitty.play();
     jest.advanceTimersByTime(25001);
-    console.log(kitty.foodLevel);
-    console.log(kitty.energyLevel);
-    console.log(kitty.playLevel);
     kitty.dead();
     expect(kitty.dieTime()).toEqual(true);
   });
