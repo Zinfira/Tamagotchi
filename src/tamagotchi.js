@@ -49,7 +49,9 @@ export class Tamagotchi {
   nap() {
     this.energyLevel = 10;
   }
-  
+  giveTea() {
+    this.energyLevel += 2;
+  }
 
 
   setPlay() {
