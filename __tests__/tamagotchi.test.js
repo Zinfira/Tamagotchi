@@ -21,6 +21,7 @@ describe('Kitty', () => {
     expect(kitty.energyLevel).toEqual(10);
     expect(kitty.playLevel).toEqual(10);
   });
+  
   test('should have a food level 8 after 5001 milliseconds', () => {
     jest.advanceTimersByTime(5001);
     expect(kitty.foodLevel).toEqual(8);
@@ -38,6 +39,7 @@ describe('Kitty', () => {
     kitty.feed();
     expect(kitty.foodLevel).toEqual(10);
   });
+  
   test('should have an energy level of 8 after 5001 milliseconds', () => {
     jest.advanceTimersByTime(5001);
     expect(kitty.energyLevel).toEqual(8);
@@ -54,5 +56,10 @@ describe('Kitty', () => {
     jest.advanceTimersByTime(22500);
     kitty.nap();
     expect(kitty.energyLevel).toEqual(10);
-  })
+  });
+
+  test('should have a play level of 8 after 5001 millisecimds', () => {
+    jest.advanceTimersByTime(5001);
+    expect(kitty.playLevel).toEqual(8);
+  });
 })
