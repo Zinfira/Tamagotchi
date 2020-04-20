@@ -141,4 +141,9 @@ describe('Kitty', () => {
     kitty.dead();
     expect(kitty.dieTime()).toEqual(true);
   });
-})
+  test('should end game if tamagotchi dies', function() {
+    kitty.dead();
+    console.log("You killed your poor pet!");
+  });
+
+});

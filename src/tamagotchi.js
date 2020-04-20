@@ -106,6 +106,9 @@ export class Tamagotchi {
     this.playLevel = 0;
   }
 
+
+
+
   giveMovie() {
     if (this.playLevel <= 7) {
       this.playLevel += 3; 
@@ -135,7 +138,6 @@ export class Tamagotchi {
     }
   }
   
-
 
 
 }
