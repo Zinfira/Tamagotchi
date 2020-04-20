@@ -27,15 +27,23 @@ describe('Kitty', () => {
   });
   test('should get very hungry if the food level drops below zero', function() {
     kitty.foodLevel = 0;
-    expect(kitty.dieTime()).toEqual(true);
+    expect(kitty.foodTime()).toEqual(true);
   });
   test('should get very hungry if 25 seconds pass without feeding', function () {
     jest.advanceTimersByTime(25001);
-    expect(kitty.dieTime()).toEqual(true);
+    expect(kitty.foodTime()).toEqual(true);
   });
   test('should have a food level of 10 if it is fed', function() {
     jest.advanceTimersByTime(22500);
     kitty.feed();
     expect(kitty.foodLevel).toEqual(10);
+  });
+  test('should get very tired if the energy level drops below zero', function() {
+    kitty.energyLevel = 0;
+    expect(kitty.napTime()).toEqual(true);
+  });
+  test('should have an energy level of 8 after 10001 milliseconds', () => {
+    jest.advanceTimersByTime(10001);
+    expect(kitty.energyLevel).toEqual(8);
   });
 })

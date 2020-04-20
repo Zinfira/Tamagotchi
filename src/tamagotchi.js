@@ -14,17 +14,27 @@ export class Tamagotchi {
       this.foodLevel--;
     }, 2500);
   }
-
   setEnergy() {
     setInterval(() => {
       this.energyLevel--;
     }, 5000);
   }
+  setPlay() {
+    setInterval(() => {
+      this.playLevel--;
+    }, 4000);
+  }
 
-  
 
-  dieTime() {
+  foodTime() {
     if (this.foodLevel > 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+  napTime() {
+    if(this.energyLevel > 0) {
       return false;
     } else {
       return true;
