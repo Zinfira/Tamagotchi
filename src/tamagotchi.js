@@ -7,7 +7,7 @@ export class Tamagotchi {
     this.playLevel = 10;
     this.poopLevel = 10;
     this.happyLevel = 10;
-    this.life = 10;    
+    this.life = 10;
   }
 
   setHunger() {
@@ -28,7 +28,11 @@ export class Tamagotchi {
     this.foodLevel = 10;
   }
   giveApple() {
-    this.foodLevel += 2;
+    if (this.foodLevel <= 8) {
+      this.foodLevel += 2;
+    } else {
+      return "I'm not hungry!";
+    }
   }
 
 
@@ -40,7 +44,7 @@ export class Tamagotchi {
     }, 2500);
   }
   napTime() {
-    if(this.energyLevel > 0) {
+    if (this.energyLevel > 0) {
       return false;
     } else {
       return true;
@@ -93,8 +97,8 @@ export class Tamagotchi {
     this.playLevel = 0;
   }
 
-  
-  
+
+
 
 
 }

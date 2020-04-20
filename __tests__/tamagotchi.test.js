@@ -4,14 +4,14 @@ describe('Kitty', () => {
   jest.useFakeTimers();
   let kitty;
 
-  beforeEach(function() {
+  beforeEach(function () {
     kitty = new Tamagotchi("Kitty");
     kitty.setHunger();
     kitty.setEnergy();
     kitty.setPlay();
   });
 
-  afterEach(function() {
+  afterEach(function () {
     jest.clearAllTimers();
   });
 
@@ -22,12 +22,13 @@ describe('Kitty', () => {
     expect(kitty.playLevel).toEqual(10);
     expect(kitty.happyLevel).toEqual(10);
   });
-  
+
+
   test('food level should go down by 1 every 2.5 seconds', () => {
     jest.advanceTimersByTime(2501);
     expect(kitty.foodLevel).toEqual(9);
   });
-  test('should get very hungry if the food level drops below zero', function() {
+  test('should get very hungry if the food level drops below zero', function () {
     kitty.foodLevel = 0;
     expect(kitty.foodTime()).toEqual(true);
   });
@@ -35,26 +36,27 @@ describe('Kitty', () => {
     jest.advanceTimersByTime(50001);
     expect(kitty.foodTime()).toEqual(true);
   });
-  test('should have a food level of 10 if it is fed', function() {
+  test('should have a food level of 10 if it is fed', function () {
     jest.advanceTimersByTime(22500);
     kitty.feed();
     expect(kitty.foodLevel).toEqual(10);
   });
-  test('should raise food level by +2 when given an apple', function() {
-    jest.advanceTimersByTime(25000);
-    kitty.giveApple();
-    expect(kitty.foodLevel).toEqual(+2);
+  test('should raise food level by +2 when given an apple', function () {
+    jest.advanceTimersByTime(2500);
+    expect(kitty.foodLevel).toEqual(9);
+    expect(kitty.giveApple()).toEqual("I'm not hungry!");
   });
-  
+
+
   test('energy level should go down by 1 every 2.5 seconds', () => {
     jest.advanceTimersByTime(2500);
     expect(kitty.energyLevel).toEqual(9);
   });
-  test('should get very tired if the energy level drops below zero', function() {
+  test('should get very tired if the energy level drops below zero', function () {
     kitty.energyLevel = 0;
     expect(kitty.napTime()).toEqual(true);
   });
-  test('should get very tired if 50 seconds pass without a nap', function() {
+  test('should get very tired if 50 seconds pass without a nap', function () {
     jest.advanceTimersByTime(50001);
     expect(kitty.napTime()).toEqual(true);
   });
@@ -63,21 +65,22 @@ describe('Kitty', () => {
     kitty.nap();
     expect(kitty.energyLevel).toEqual(10);
   });
-  test('should raise energy level by +2 when given some tea', function() {
+  test('should raise energy level by +2 when given some tea', function () {
     jest.advanceTimersByTime(25000);
     kitty.giveTea();
     expect(kitty.energyLevel).toEqual(+2);
   });
 
+
   test('play level should go down by 1 every 2.5 seconds', () => {
     jest.advanceTimersByTime(2500);
     expect(kitty.playLevel).toEqual(9);
   });
-  test('should get very sad if the play level drops below zero', function() {
+  test('should get very sad if the play level drops below zero', function () {
     kitty.playLevel = 0;
     expect(kitty.playTime()).toEqual(true);
   });
-  test('should get very sad if 50 seconds pass without games', function() {
+  test('should get very sad if 50 seconds pass without games', function () {
     jest.advanceTimersByTime(50001);
     expect(kitty.playTime()).toEqual(true);
   });
@@ -86,13 +89,14 @@ describe('Kitty', () => {
     kitty.play();
     expect(kitty.playLevel).toEqual(10);
   });
-  test('should raise play level by +2 when given a toy', function() {
+  test('should raise play level by +2 when given a toy', function () {
     jest.advanceTimersByTime(25000);
     kitty.giveToy();
     expect(kitty.playLevel).toEqual(+2);
   })
 
-  test('should kill tamagotchi if food, energy and play levels will be 0', function() {
+
+  test('should kill tamagotchi if food, energy and play levels will be 0', function () {
     kitty.feed();
     kitty.nap();
     kitty.play();
