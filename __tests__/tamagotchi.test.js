@@ -22,9 +22,9 @@ describe('Kitty', () => {
     expect(kitty.playLevel).toEqual(10);
   });
   
-  test('should have a food level 8 after 5001 milliseconds', () => {
-    jest.advanceTimersByTime(5001);
-    expect(kitty.foodLevel).toEqual(8);
+  test('food level should go down by 1 every 2.5 seconds', () => {
+    jest.advanceTimersByTime(2501);
+    expect(kitty.foodLevel).toEqual(9);
   });
   test('should get very hungry if the food level drops below zero', function() {
     kitty.foodLevel = 0;
@@ -40,9 +40,9 @@ describe('Kitty', () => {
     expect(kitty.foodLevel).toEqual(10);
   });
   
-  test('should have an energy level of 8 after 5001 milliseconds', () => {
-    jest.advanceTimersByTime(5001);
-    expect(kitty.energyLevel).toEqual(8);
+  test('energy level should go down by 1 every 2.5 seconds', () => {
+    jest.advanceTimersByTime(2500);
+    expect(kitty.energyLevel).toEqual(9);
   });
   test('should get very tired if the energy level drops below zero', function() {
     kitty.energyLevel = 0;
@@ -58,9 +58,9 @@ describe('Kitty', () => {
     expect(kitty.energyLevel).toEqual(10);
   });
 
-  test('should have a play level of 6 after 10001 millisecimds', () => {
-    jest.advanceTimersByTime(10001);
-    expect(kitty.playLevel).toEqual(6);
+  test('play level should go down by 1 every 2.5 seconds', () => {
+    jest.advanceTimersByTime(2500);
+    expect(kitty.playLevel).toEqual(9);
   });
   test('should get very sad if the play level drops below zero', function() {
     kitty.playLevel = 0;

@@ -12,9 +12,12 @@ export class Tamagotchi {
 
   setHunger() {
     setInterval(() => {
-      this.foodLevel--;
+      if (this.foodLevel > 0) {
+        this.foodLevel -= 1;
+      }
     }, 2500);
   }
+
   foodTime() {
     if (this.foodLevel > 0) {
       return false;
@@ -29,7 +32,9 @@ export class Tamagotchi {
 
   setEnergy() {
     setInterval(() => {
-      this.energyLevel--;
+      if (this.energyLevel > 0) {
+        this.energyLevel -= 1;
+      }
     }, 2500);
   }
   napTime() {
@@ -46,7 +51,9 @@ export class Tamagotchi {
 
   setPlay() {
     setInterval(() => {
-      this.playLevel--;
+      if (this.playLevel > 0) {
+        this.playLevel -= 1;
+      }
     }, 2500);
   }
   playTime() {
