@@ -86,8 +86,8 @@ export class Tamagotchi {
     } else {
       return "I don't want to play!"
     }
-    
   }
+  
 
   setDeath() {
     setInterval(() => {

@@ -110,6 +110,13 @@ describe('Kitty', () => {
     expect(kitty.playLevel).toEqual(9);
   })
 
+  test('should raise play level by +3 but will decrease energy level by -1', function() {
+    jest.advanceTimersByTime(12500);
+    kitty.giveMovie();
+    expect(kitty.playLevel).toEqual(8);
+    expect(kitty.energyLevel).toEqual(4);
+  })
+
 
   test('should kill tamagotchi if food, energy and play levels will be 0', function () {
     kitty.feed();
