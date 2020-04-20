@@ -17,12 +17,12 @@ export class Tamagotchi {
   setEnergy() {
     setInterval(() => {
       this.energyLevel--;
-    }, 5000);
+    }, 2500);
   }
   setPlay() {
     setInterval(() => {
       this.playLevel--;
-    }, 4000);
+    }, 2500);
   }
 
 
@@ -42,6 +42,9 @@ export class Tamagotchi {
   }
   feed() {
     this.foodLevel = 10;
+  }
+  nap() {
+   
   }
   
   
