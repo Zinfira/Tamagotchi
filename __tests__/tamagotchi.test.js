@@ -108,14 +108,14 @@ describe('Kitty', () => {
     jest.advanceTimersByTime(7500);
     kitty.giveToy();
     expect(kitty.playLevel).toEqual(9);
-  })
+  });
 
   test('should raise play level by +3 but will decrease energy level by -1', function() {
     jest.advanceTimersByTime(12500);
     kitty.giveMovie();
     expect(kitty.playLevel).toEqual(8);
     expect(kitty.energyLevel).toEqual(4);
-  })
+  });
 
   test('should raise food level by +3 but will decrease energy and play level by -1', function () {
     jest.advanceTimersByTime(15000);
@@ -123,6 +123,14 @@ describe('Kitty', () => {
     expect(kitty.foodLevel).toEqual(7);
     expect(kitty.playLevel).toEqual(3);
     expect(kitty.energyLevel).toEqual(3);
+  });
+
+  test('should raise energy level by +4 but will decrease food and play level by -1', function() {
+    jest.advanceTimersByTime(12500);
+    kitty.giveCake();
+    expect(kitty.energyLevel).toEqual(8);
+    expect(kitty.foodLevel).toEqual(4);
+    expect(kitty.playLevel).toEqual(4);
   });
 
   test('should kill tamagotchi if food, energy and play levels will be 0', function () {

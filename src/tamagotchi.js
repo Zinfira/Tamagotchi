@@ -123,10 +123,7 @@ export class Tamagotchi {
       } else {
         return "I don't want to eat cake now"
       }
-
   }
-
-
 
 
 
