@@ -58,9 +58,9 @@ describe('Kitty', () => {
     expect(kitty.energyLevel).toEqual(10);
   });
 
-  test('should have a play level of 8 after 5001 millisecimds', () => {
-    jest.advanceTimersByTime(5001);
-    expect(kitty.playLevel).toEqual(8);
+  test('should have a play level of 6 after 10001 millisecimds', () => {
+    jest.advanceTimersByTime(10001);
+    expect(kitty.playLevel).toEqual(6);
   });
   test('should get very sad if the play level drops below zero', function() {
     kitty.playLevel = 0;
@@ -69,5 +69,22 @@ describe('Kitty', () => {
   test('should get very sad if 50 seconds pass without games', function() {
     jest.advanceTimersByTime(50001);
     expect(kitty.playTime()).toEqual(true);
+  });
+  test('should have a play level of 10 if it plays games', function () {
+    jest.advanceTimersByTime(22500);
+    kitty.play();
+    expect(kitty.playLevel).toEqual(10);
+  });
+
+  test('should kill tamagotchi if food, energy and play levels will be 0', function() {
+    kitty.feed();
+    kitty.nap();
+    kitty.play();
+    jest.advanceTimersByTime(25001);
+    console.log(kitty.foodLevel);
+    console.log(kitty.energyLevel);
+    console.log(kitty.playLevel);
+    kitty.dead();
+    expect(kitty.dieTime()).toEqual(true);
   });
 })

@@ -6,7 +6,8 @@ export class Tamagotchi {
     this.energyLevel = 10;
     this.playLevel = 10;
     this.poopLevel = 10;
-    this.sleepLevel = 10;    
+    this.sleepLevel = 10;
+    this.life = 10;    
   }
 
   setHunger() {
@@ -55,9 +56,27 @@ export class Tamagotchi {
       return true;
     }
   }
-
+  play() {
+    this.playLevel = 10;
+  }
   
-  
+  setDeath() {
+    setInterval(() => {
+      this.life--;
+    }, 50001);
+  }
+  dieTime() {
+    if ((this.foodLevel > 0) && (this.energyLevel > 0) && (this.playLevel > 0)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+  dead() {
+    this.foodLevel = 0;
+    this.energyLevel = 0;
+    this.playLevel = 0;
+  }
 
   
   
