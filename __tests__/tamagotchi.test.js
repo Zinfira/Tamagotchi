@@ -8,16 +8,18 @@ describe('Kitty', () => {
     kitty = new Tamagotchi("Kitty");
     kitty.setHunger();
     kitty.setEnergy();
+    kitty.setPlay();
   });
 
   afterEach(function() {
     jest.clearAllTimers();
   });
 
-  test('should have a name and a food level of 10, an energy level of 10 when it is created', () => {
+  test('should have a name and a food level of 10, an energy level of 10, play level of 10 when it is created', () => {
     expect(kitty.name).toEqual("Kitty");
     expect(kitty.foodLevel).toEqual(10);
     expect(kitty.energyLevel).toEqual(10);
+    expect(kitty.playLevel).toEqual(10);
   });
   test('should have a food level 8 after 5001 milliseconds', () => {
     jest.advanceTimersByTime(5001);

@@ -3,10 +3,10 @@ export class Tamagotchi {
   constructor(name) {
     this.name = name;
     this.foodLevel = 10;
-    this.poopLevel = 10;
-    this.sleepLevel = 10;
-    this.playLevel = 10;
     this.energyLevel = 10;
+    this.playLevel = 10;
+    this.poopLevel = 10;
+    this.sleepLevel = 10;    
   }
 
   setHunger() {
@@ -20,7 +20,9 @@ export class Tamagotchi {
       this.energyLevel--;
     }, 5000);
   }
+
   
+
   dieTime() {
     if (this.foodLevel > 0) {
       return false;
