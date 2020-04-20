@@ -48,7 +48,7 @@ export class Tamagotchi {
       this.playLevel--;
     }, 2500);
   }
-naplayTime() {
+  playTime() {
     if (this.playLevel > 0) {
       return false;
     } else {
