@@ -6,7 +6,7 @@ export class Tamagotchi {
     this.energyLevel = 10;
     this.playLevel = 10;
     this.poopLevel = 10;
-    this.sleepLevel = 10;
+    this.happyLevel = 10;
     this.life = 10;    
   }
 
@@ -17,7 +17,6 @@ export class Tamagotchi {
       }
     }, 2500);
   }
-
   foodTime() {
     if (this.foodLevel > 0) {
       return false;
@@ -27,6 +26,9 @@ export class Tamagotchi {
   }
   feed() {
     this.foodLevel = 10;
+  }
+  giveApple() {
+    this.foodLevel += 2;
   }
 
 

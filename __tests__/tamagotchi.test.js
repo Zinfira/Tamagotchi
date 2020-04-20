@@ -20,6 +20,7 @@ describe('Kitty', () => {
     expect(kitty.foodLevel).toEqual(10);
     expect(kitty.energyLevel).toEqual(10);
     expect(kitty.playLevel).toEqual(10);
+    expect(kitty.happyLevel).toEqual(10);
   });
   
   test('food level should go down by 1 every 2.5 seconds', () => {
@@ -39,6 +40,11 @@ describe('Kitty', () => {
     kitty.feed();
     expect(kitty.foodLevel).toEqual(10);
   });
+  test('should raise food level by +2 when given an apple', function() {
+    jest.advanceTimersByTime(25000);
+    kitty.giveApple();
+    expect(kitty.foodLevel).toEqual(+2);
+  })
   
   test('energy level should go down by 1 every 2.5 seconds', () => {
     jest.advanceTimersByTime(2500);
