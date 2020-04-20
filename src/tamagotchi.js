@@ -58,8 +58,7 @@ export class Tamagotchi {
       this.energyLevel += 2;
     } else {
       return "I don't want tea yet!"
-    }
-    
+    }    
   }
 
 
@@ -108,12 +107,23 @@ export class Tamagotchi {
   }
 
   giveMovie() {
-    if (this.playLevel <= 6) {
+    if (this.playLevel <= 7) {
       this.playLevel += 3; 
       this.energyLevel -= 1;
     } else {
       return "I don't want to watch movies"
     }
+  }
+
+    giveCake() {
+      if (this.playLevel <= 7) {
+        this.foodLevel += 3; 
+        this.energyLevel -= 1;
+        this.playLevel -= 1;
+      } else {
+        return "I don't want to eat cake now"
+      }
+
   }
 
 
