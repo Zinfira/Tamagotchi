@@ -15,6 +15,12 @@ export class Tamagotchi {
     }, 2500);
   }
 
+  setEnergy() {
+    setInterval(() => {
+      this.energyLevel--;
+    }, 5000);
+  }
+  
   dieTime() {
     if (this.foodLevel > 0) {
       return false;
@@ -22,6 +28,11 @@ export class Tamagotchi {
       return true;
     }
   }
+  feed() {
+    this.foodLevel = 10;
+  }
+  
+  
 
 
 }
