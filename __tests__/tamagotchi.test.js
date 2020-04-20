@@ -30,8 +30,8 @@ describe('Kitty', () => {
     kitty.foodLevel = 0;
     expect(kitty.foodTime()).toEqual(true);
   });
-  test('should get very hungry if 25 seconds pass without feeding', function () {
-    jest.advanceTimersByTime(25001);
+  test('should get very hungry if 50 seconds pass without feeding', function () {
+    jest.advanceTimersByTime(50001);
     expect(kitty.foodTime()).toEqual(true);
   });
   test('should have a food level of 10 if it is fed', function() {
@@ -61,5 +61,13 @@ describe('Kitty', () => {
   test('should have a play level of 8 after 5001 millisecimds', () => {
     jest.advanceTimersByTime(5001);
     expect(kitty.playLevel).toEqual(8);
+  });
+  test('should get very sad if the play level drops below zero', function() {
+    kitty.playLevel = 0;
+    expect(kitty.playTime()).toEqual(true);
+  });
+  test('should get very sad if 50 seconds pass without games', function() {
+    jest.advanceTimersByTime(50001);
+    expect(kitty.playTime()).toEqual(true);
   });
 })

@@ -14,27 +14,8 @@ export class Tamagotchi {
       this.foodLevel--;
     }, 2500);
   }
-  setEnergy() {
-    setInterval(() => {
-      this.energyLevel--;
-    }, 2500);
-  }
-  setPlay() {
-    setInterval(() => {
-      this.playLevel--;
-    }, 2500);
-  }
-
-
   foodTime() {
     if (this.foodLevel > 0) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-  napTime() {
-    if(this.energyLevel > 0) {
       return false;
     } else {
       return true;
@@ -43,9 +24,41 @@ export class Tamagotchi {
   feed() {
     this.foodLevel = 10;
   }
+
+
+  setEnergy() {
+    setInterval(() => {
+      this.energyLevel--;
+    }, 2500);
+  }
+  napTime() {
+    if(this.energyLevel > 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
   nap() {
     this.energyLevel = 10;
   }
+
+
+  setPlay() {
+    setInterval(() => {
+      this.playLevel--;
+    }, 2500);
+  }
+naplayTime() {
+    if (this.playLevel > 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  
+  
+
   
   
 
