@@ -25,7 +25,7 @@ export class Tamagotchi {
     }
   }
   feed() {
-    this.foodLevel += 10;
+    this.foodLevel += 5;
   }
   giveApple() {
     if (this.foodLevel <= 80) {
@@ -54,7 +54,7 @@ export class Tamagotchi {
     }
   }
   nap() {
-    this.energyLevel += 10;
+    this.energyLevel += 5;
   }
   giveTea() {
     if (this.energyLevel <= 80) {
@@ -71,7 +71,7 @@ export class Tamagotchi {
         this.playLevel -= 1;
       }
       if (this.playLevel > 100) {
-        this.PlayLevel = 100;
+        this.playLevel = 100;
       }
     }, 500);
   }
@@ -83,7 +83,7 @@ export class Tamagotchi {
     }
   }
   play() {
-    this.playLevel += 10;
+    this.playLevel += 5;
   }
   giveToy() {
     if (this.playLevel <= 80) {
@@ -94,7 +94,7 @@ export class Tamagotchi {
   }
 
   dieTime() {
-    if ((this.foodLevel === 0) || (this.energyLevel === 0) || (this.playLevel === 0)) {
+    if ((this.foodLevel <= 0) || (this.energyLevel <= 0) || (this.playLevel <= 0)) {
       return true;
     } else {
       return false;
@@ -109,32 +109,20 @@ export class Tamagotchi {
 
 
   giveMovie() {
-    if (this.playLevel <= 70) {
-      this.playLevel += 30; 
-      this.energyLevel -= 10;
-    } else {
-      return "I don't want to watch movies";
-    }
+    this.playLevel += 30; 
+    this.energyLevel -= 10;
   }
 
   giveCake() {
-    if (this.foodLevel <= 70) {
-      this.foodLevel += 30; 
-      this.energyLevel -= 10;
-      this.playLevel -= 10;
-    } else {
-      return "I don't want to eat cake now";
-    }
+    this.foodLevel += 30; 
+    this.energyLevel -= 10;
+    this.playLevel -= 10;
   }
 
   giveRedBull() {
-    if (this.energyLevel <= 70) {
-      this.energyLevel += 30;
-      this.foodLevel -= 20;
-      this.playLevel -= 10;
-    } else {
-      return "It's too early for energy drinks!";
-    }
+    this.energyLevel += 30;
+    this.foodLevel -= 20;
+    this.playLevel -= 10;
   }
   
   

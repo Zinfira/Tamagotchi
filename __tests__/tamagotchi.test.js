@@ -24,9 +24,9 @@ describe('Kitty', () => {
   });
 
 
-  test('food level should go down by 1 every 2.5 seconds', () => {
-    jest.advanceTimersByTime(2501);
-    expect(kitty.foodLevel).toEqual(9);
+  test('food level should go down by 4 every 2 seconds', () => {
+    jest.advanceTimersByTime(5001);
+    expect(kitty.foodLevel).toEqual(96);
   });
   test('should get very hungry if the food level drops below zero', function () {
     kitty.foodLevel = 0;
@@ -141,12 +141,4 @@ describe('Kitty', () => {
     kitty.dead();
     expect(kitty.dieTime()).toEqual(true);
   });
-  test('should end game if tamagotchi dies', function() {
-    kitty.setHunger();
-    kitty.setEnergy();
-    jest.advanceTimersByTime
-    console.log("You killed your poor pet!");
-    kitty.dead();
-  });
-
 });

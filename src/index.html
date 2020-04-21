@@ -12,12 +12,13 @@
       <form id="name">
         <div class="form-group">
           <label for="name">What's my name?</label>
-          <input type="text" name="enterName" placeholder="Enter name for Tamagotchi" class="showName">
+          <input type="text" name="enterName" placeholder="Enter name for Tamagotchi" class="showName" required>
           <button type="submit" name="button" class="btn btn-primary" id="start">Create Tamagotchi</button>
         </div>
       </form>
       
       <div id="game">
+        <img src="https://vignette.wikia.nocookie.net/tamagotchi/images/c/c3/01.gif/revision/latest/scale-to-width-down/340?cb=20090707084835" alt="tamagotchi character">
         <h4>Keep <span class="showName"></span> alive by feeding it, playing with it, letting it sleep, and giving it some treats</h4>
         <br>
         <div class="row">
@@ -54,8 +55,10 @@
         </div>
         <br>
         <br>
+        
+        <h3>Treat me:</h3>
+        <br>
         <div class="row">
-          <h3>Treat me:</h3>
           <div class="col-md-2">
             <button id="movie" class="btn btn-outline-danger btn-sm">Let it watch a movie</button>
           </div>
