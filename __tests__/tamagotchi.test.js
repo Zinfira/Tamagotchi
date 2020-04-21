@@ -142,8 +142,11 @@ describe('Kitty', () => {
     expect(kitty.dieTime()).toEqual(true);
   });
   test('should end game if tamagotchi dies', function() {
-    kitty.dead();
+    kitty.setHunger();
+    kitty.setEnergy();
+    jest.advanceTimersByTime
     console.log("You killed your poor pet!");
+    kitty.dead();
   });
 
 });
