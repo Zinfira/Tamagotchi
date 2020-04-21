@@ -6,5 +6,12 @@ body {
   text-align: center;
   font-family: fantasy;
   padding: 5px;
-  
+}
+
+#game {
+  display: none;
+}
+
+#dead {
+  display: none;
 }

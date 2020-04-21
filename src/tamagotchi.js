@@ -57,7 +57,7 @@ export class Tamagotchi {
     if (this.energyLevel <= 8) {
       this.energyLevel += 2;
     } else {
-      return "I don't want tea yet!"
+      return "I don't want tea yet!";
     }    
   }
 
@@ -83,7 +83,7 @@ export class Tamagotchi {
     if (this.playLevel <= 8) {
       this.playLevel += 2;
     } else {
-      return "I don't want to play!"
+      return "I don't want to play!";
     }
   }
 
@@ -114,7 +114,7 @@ export class Tamagotchi {
       this.playLevel += 3; 
       this.energyLevel -= 1;
     } else {
-      return "I don't want to watch movies"
+      return "I don't want to watch movies";
     }
   }
 
@@ -124,7 +124,7 @@ export class Tamagotchi {
       this.energyLevel -= 1;
       this.playLevel -= 1;
     } else {
-      return "I don't want to eat cake now"
+      return "I don't want to eat cake now";
     }
   }
 
@@ -134,7 +134,7 @@ export class Tamagotchi {
       this.foodLevel -= 2;
       this.playLevel -= 1;
     } else {
-      return "It's too early for energy drinks!"
+      return "It's too early for energy drinks!";
     }
   }
   
