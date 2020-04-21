@@ -10,9 +10,12 @@ export class Tamagotchi {
   setHunger() {
     setInterval(() => {
       if (this.foodLevel > 0) {
-        this.foodLevel -= 5;
+        this.foodLevel -= 1;
+      } 
+      if (this.foodLevel > 100) {
+        this.foodLevel = 100;
       }
-    }, 2500);
+    }, 500);
   }
   foodTime() {
     if (this.foodLevel > 0) {
@@ -36,9 +39,12 @@ export class Tamagotchi {
   setEnergy() {
     setInterval(() => {
       if (this.energyLevel > 0) {
-        this.energyLevel -= 5;
+        this.energyLevel -= 1;
       }
-    }, 2500);
+      if (this.energyLevel > 100) {
+        this.energyLevel = 100;
+      }
+    }, 500);
   }
   napTime() {
     if (this.energyLevel > 0) {
@@ -62,9 +68,12 @@ export class Tamagotchi {
   setPlay() {
     setInterval(() => {
       if (this.playLevel > 0) {
-        this.playLevel -= 5;
+        this.playLevel -= 1;
       }
-    }, 2500);
+      if (this.playLevel > 100) {
+        this.PlayLevel = 100;
+      }
+    }, 500);
   }
   playTime() {
     if (this.playLevel > 0) {
@@ -85,10 +94,10 @@ export class Tamagotchi {
   }
 
   dieTime() {
-    if ((this.foodLevel > 0) || (this.energyLevel > 0) || (this.playLevel > 0)) {
-      return false;
-    } else {
+    if ((this.foodLevel === 0) || (this.energyLevel === 0) || (this.playLevel === 0)) {
       return true;
+    } else {
+      return false;
     }
   }
   dead() {
@@ -127,6 +136,7 @@ export class Tamagotchi {
       return "It's too early for energy drinks!";
     }
   }
+  
   
 
 

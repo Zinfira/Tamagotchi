@@ -9,6 +9,7 @@ import './styles.css';
 // xhr.done(function(data) { console.log("success got data", data); });
 
 
+
 $(document).ready(function() {
   $("form#name").submit(function(event) {
     event.preventDefault();
@@ -16,7 +17,7 @@ $(document).ready(function() {
     $("#game").show();
     $("#name").hide();
 
-    let name = $("#enterName").val();
+    let name = $(".showName").val();
     let newTamagotchi = new Tamagotchi(name);
     $("#food-bar").text(newTamagotchi.foodLevel);
     $("#play-bar").text(newTamagotchi.playLevel);
@@ -24,10 +25,20 @@ $(document).ready(function() {
     newTamagotchi.setHunger();
     newTamagotchi.setPlay();
     newTamagotchi.setEnergy();
+    
 
     $(".showName").text(newTamagotchi.name);
     
-    
+    // if (newTamagotchi.foodLevel > 65) {
+    //   $("#food-bar").removeClass();
+    //   $("#food-bar").addClass('progress-bar progress-bar-success');
+    // } else if ( newTamagotchi.foodLevel < 65 && newTamagotchi.foodLevel > 30) {
+    //   $("#food-bar").removeClass();
+    //   $("#food-bar").addClass('progress-bar progress-bar-warning');
+    // } else if (newTamagotchi.foodLevel < 30) {
+    //   $("#food-bar").removeClass();
+    //   ("#food-bar").addClass('progress-bar progress-bar-danger');
+    // }
 
     $("#feed").click(function() {
       newTamagotchi.feed();
@@ -57,9 +68,12 @@ $(document).ready(function() {
       newTamagotchi.giveToy();
     });
   
-   
+    
 
     let down = setInterval(function() {
+      $("#food-bar").html(newTamagotchi.foodLevel);
+      $("#play-bar").html(newTamagotchi.playLevel);
+      $("#energy-bar").html(newTamagotchi.energyLevel);
       $("#food-bar").css("width", newTamagotchi.foodLevel + "%");
       $("#play-bar").css("width", newTamagotchi.playLevel + "%");
       $("#energy-bar").css("width", newTamagotchi.energyLevel + "%");
@@ -70,17 +84,7 @@ $(document).ready(function() {
       }
 
     }, 1000);
-
-    if (newTamagotchi.foodLevel > 65) {
-      $("#food-bar").removeClass();
-      $("#food-bar").addClass('progress-bar progress-bar-success');
-    } else if ( newTamagotchi.foodLevel < 65 && newTamagotchi.foodLevel > 30) {
-      $("#food-bar").removeClass();
-      $("#food-bar").addClass('progress-bar progress-bar-warning');
-    } else if (newTamagotchi.foodLevel < 30) {
-      $("#food-bar").removeClass();
-      ("#food-bar").addClass('progress-bar progress-bar-danger');
-    }
+    
 
     $("#reset").click(function() {
       $("#dead").hide();

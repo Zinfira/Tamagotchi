@@ -5,9 +5,7 @@ body {
   background-color: #898FF3;
   text-align: center;
   font-family: fantasy;
-  padding-bottom: 3px;
 }
-
 
 #game {
   display: none;
