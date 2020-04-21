@@ -1,8 +1,8 @@
 import { Tamagotchi } from './tamagotchi.js';
 import $ from "jquery";
-// import 'bootstrap';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles.css';
 
 
 // var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=kitty&api_key=YOUR_API_KEY&limit=5");
@@ -24,7 +24,9 @@ $(document).ready(function() {
     newTamagotchi.setHunger();
     newTamagotchi.setPlay();
     newTamagotchi.setEnergy();
-  
+
+    $(".showName").text(newTamagotchi.name);
+    
 
     $("#feed").click(function() {
       newTamagotchi.feed();
@@ -35,7 +37,24 @@ $(document).ready(function() {
     $("#sleep").click(function() {
       newTamagotchi.nap();
     });
+    $("#movie").click(function() {
+      newTamagotchi.giveMovie();
+      /*newTamagotchi.feed();
+      newTamagotchi.play();
+      newTamagotchi.nap();*/
+    });
   
+    let down = setInterval(function() {
+      $("#food-bar").css("width", newTamagotchi.foodLevel + "%");
+      $("#play-bar").css("width", newTamagotchi.playLevel + "%");
+      $("#energy-bar").css("width", newTamagotchi.energyLevel + "%");
+      if (newTamagotchi.dieTime()) {
+        $("#dead").show();
+        $("#game").hide();
+        clearInterval(down);
+      }
+
+    }, 5000);
 
     $("#reset").click(function() {
       $("#dead").hide();

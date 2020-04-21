@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="src/styles.css">
     <title>Tamagotchi</title>
   </head>
   <body>
@@ -13,7 +12,7 @@
       <form id="name">
         <div class="form-group">
           <label for="name">What's my name?</label>
-          <input type="text" name="enterName" placeholder="enter name" class="showName">
+          <input type="text" name="enterName" placeholder="Enter name for Tamagotchi" class="showName">
           <button type="submit" name="button" class="btn btn-primary" id="start">Create Tamagotchi</button>
         </div>
       </form>
@@ -28,7 +27,7 @@
             </div>
           </div>
           <div class="col-md-2">
-            <button id="feed" class="btn btn-success">Feed</button>
+            <button id="feed" class="btn btn-success" onclick="setTimeout(500);">Feed</button>
           </div>
         </div>
         <div class="row">

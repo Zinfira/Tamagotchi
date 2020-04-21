@@ -2,18 +2,18 @@ export class Tamagotchi {
 
   constructor(name) {
     this.name = name;
-    this.foodLevel = 10;
-    this.energyLevel = 10;
-    this.playLevel = 10;
-    this.poopLevel = 10;
-    this.happyLevel = 10;
-    this.life = 10;
+    this.foodLevel = 100;
+    this.energyLevel = 100;
+    this.playLevel = 100;
+    this.poopLevel = 100;
+    this.happyLevel = 100;
+    this.life = 100;
   }
 
   setHunger() {
     setInterval(() => {
       if (this.foodLevel > 0) {
-        this.foodLevel -= 1;
+        this.foodLevel -= 5;
       }
     }, 2500);
   }
@@ -25,11 +25,11 @@ export class Tamagotchi {
     }
   }
   feed() {
-    this.foodLevel = 10;
+    this.foodLevel = 100;
   }
   giveApple() {
-    if (this.foodLevel <= 8) {
-      this.foodLevel += 2;
+    if (this.foodLevel <= 80) {
+      this.foodLevel += 20;
     } else {
       return "I'm not hungry!";
     }
@@ -39,7 +39,7 @@ export class Tamagotchi {
   setEnergy() {
     setInterval(() => {
       if (this.energyLevel > 0) {
-        this.energyLevel -= 1;
+        this.energyLevel -= 5;
       }
     }, 2500);
   }
@@ -51,11 +51,11 @@ export class Tamagotchi {
     }
   }
   nap() {
-    this.energyLevel = 10;
+    this.energyLevel = 100;
   }
   giveTea() {
-    if (this.energyLevel <= 8) {
-      this.energyLevel += 2;
+    if (this.energyLevel <= 80) {
+      this.energyLevel += 20;
     } else {
       return "I don't want tea yet!";
     }    
@@ -65,7 +65,7 @@ export class Tamagotchi {
   setPlay() {
     setInterval(() => {
       if (this.playLevel > 0) {
-        this.playLevel -= 1;
+        this.playLevel -= 5;
       }
     }, 2500);
   }
@@ -77,11 +77,11 @@ export class Tamagotchi {
     }
   }
   play() {
-    this.playLevel = 10;
+    this.playLevel = 100;
   }
   giveToy() {
-    if (this.playLevel <= 8) {
-      this.playLevel += 2;
+    if (this.playLevel <= 80) {
+      this.playLevel += 20;
     } else {
       return "I don't want to play!";
     }
@@ -108,31 +108,30 @@ export class Tamagotchi {
 
 
 
-
   giveMovie() {
-    if (this.playLevel <= 7) {
-      this.playLevel += 3; 
-      this.energyLevel -= 1;
+    if (this.playLevel <= 70) {
+      this.playLevel += 30; 
+      this.energyLevel -= 10;
     } else {
       return "I don't want to watch movies";
     }
   }
 
   giveCake() {
-    if (this.foodLevel <= 7) {
-      this.foodLevel += 3; 
-      this.energyLevel -= 1;
-      this.playLevel -= 1;
+    if (this.foodLevel <= 70) {
+      this.foodLevel += 30; 
+      this.energyLevel -= 10;
+      this.playLevel -= 10;
     } else {
       return "I don't want to eat cake now";
     }
   }
 
   giveRedBull() {
-    if (this.energyLevel <= 7) {
-      this.energyLevel += 3;
-      this.foodLevel -= 2;
-      this.playLevel -= 1;
+    if (this.energyLevel <= 70) {
+      this.energyLevel += 30;
+      this.foodLevel -= 20;
+      this.playLevel -= 10;
     } else {
       return "It's too early for energy drinks!";
     }
