@@ -5,9 +5,6 @@ export class Tamagotchi {
     this.foodLevel = 100;
     this.energyLevel = 100;
     this.playLevel = 100;
-    this.poopLevel = 100;
-    this.happyLevel = 100;
-    this.life = 100;
   }
 
   setHunger() {
@@ -25,7 +22,7 @@ export class Tamagotchi {
     }
   }
   feed() {
-    this.foodLevel = 100;
+    this.foodLevel += 10;
   }
   giveApple() {
     if (this.foodLevel <= 80) {
@@ -51,7 +48,7 @@ export class Tamagotchi {
     }
   }
   nap() {
-    this.energyLevel = 100;
+    this.energyLevel += 10;
   }
   giveTea() {
     if (this.energyLevel <= 80) {
@@ -77,7 +74,7 @@ export class Tamagotchi {
     }
   }
   play() {
-    this.playLevel = 100;
+    this.playLevel += 10;
   }
   giveToy() {
     if (this.playLevel <= 80) {
@@ -87,14 +84,8 @@ export class Tamagotchi {
     }
   }
 
-
-  setDeath() {
-    setInterval(() => {
-      this.life--;
-    }, 50001);
-  }
   dieTime() {
-    if ((this.foodLevel > 0) && (this.energyLevel > 0) && (this.playLevel > 0)) {
+    if ((this.foodLevel > 0) || (this.energyLevel > 0) || (this.playLevel > 0)) {
       return false;
     } else {
       return true;

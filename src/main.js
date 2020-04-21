@@ -27,6 +27,7 @@ $(document).ready(function() {
 
     $(".showName").text(newTamagotchi.name);
     
+    
 
     $("#feed").click(function() {
       newTamagotchi.feed();
@@ -39,11 +40,25 @@ $(document).ready(function() {
     });
     $("#movie").click(function() {
       newTamagotchi.giveMovie();
-      /*newTamagotchi.feed();
-      newTamagotchi.play();
-      newTamagotchi.nap();*/
+    });
+    $("#cake").click(function() {
+      newTamagotchi.giveCake();
+    });
+    $("#redBull").click(function() {
+      newTamagotchi.giveRedBull();
+    });
+    $("#apple").click(function() {
+      newTamagotchi.giveApple();
+    });
+    $("#tea").click(function() {
+      newTamagotchi.giveTea();
+    });
+    $("#toy").click(function() {
+      newTamagotchi.giveToy();
     });
   
+   
+
     let down = setInterval(function() {
       $("#food-bar").css("width", newTamagotchi.foodLevel + "%");
       $("#play-bar").css("width", newTamagotchi.playLevel + "%");
@@ -54,7 +69,18 @@ $(document).ready(function() {
         clearInterval(down);
       }
 
-    }, 5000);
+    }, 1000);
+
+    if (newTamagotchi.foodLevel > 65) {
+      $("#food-bar").removeClass();
+      $("#food-bar").addClass('progress-bar progress-bar-success');
+    } else if ( newTamagotchi.foodLevel < 65 && newTamagotchi.foodLevel > 30) {
+      $("#food-bar").removeClass();
+      $("#food-bar").addClass('progress-bar progress-bar-warning');
+    } else if (newTamagotchi.foodLevel < 30) {
+      $("#food-bar").removeClass();
+      ("#food-bar").addClass('progress-bar progress-bar-danger');
+    }
 
     $("#reset").click(function() {
       $("#dead").hide();
